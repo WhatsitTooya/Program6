@@ -112,6 +112,7 @@ public class ArrayListS extends java.lang.Object implements ListS {
     
     @Override
     public String toString() {
+        this.trimToSize();
         String out = "[";
         for (int i = 0; i < last - 1; i++) {
             out += arrayListS[i] + ", ";
