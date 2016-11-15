@@ -8,7 +8,7 @@ public class ArrayListS extends java.lang.Object implements ListS {
     
     public ArrayListS() {
         this.arrayListS = new String[10];
-        last = 10;
+        last = 0;
     }
     
     public ArrayListS(int size) {
@@ -18,7 +18,8 @@ public class ArrayListS extends java.lang.Object implements ListS {
     public boolean add(String data) {
         if (isFull) 
             this.dblSize();
-        arrayListS[last++] = data;
+        arrayListS[last] = data;
+        last++;
         check();
         return true;
     }
@@ -35,6 +36,7 @@ public class ArrayListS extends java.lang.Object implements ListS {
             arrayListS[i] = temp;
             temp = data;
         }
+        last++; 
         check();
         return true;
     }
@@ -47,6 +49,7 @@ public class ArrayListS extends java.lang.Object implements ListS {
     
     public void clear() {
         this.arrayListS = new String[last];
+        last = 0;
     }
     
     public boolean contains(String data) {
@@ -105,5 +108,15 @@ public class ArrayListS extends java.lang.Object implements ListS {
             this.arrayListS[i] = this.arrayListS[i+1];
         }
         arrayListS[last-1] = null;
+    }
+    
+    @Override
+    public String toString() {
+        String out = "[";
+        for (int i = 0; i < last - 1; i++) {
+            out += arrayListS[i] + ", ";
+        }
+        out += arrayListS[last - 1] + "]";
+        return out;
     }
 }
