@@ -1,4 +1,5 @@
-import java.lang.Array;
+import java.util.Arrays;
+import java.lang.String;
 
 public class ArrayListS extends java.lang.Object implements ListS {
     private String[] arrayListS;
@@ -48,7 +49,7 @@ public class ArrayListS extends java.lang.Object implements ListS {
         this.arrayListS = new String[last];
     }
     
-    public contains(String data) {
+    public boolean contains(String data) {
         if (this.indexOf(data) == -1) {
             return false;
         }
@@ -73,7 +74,7 @@ public class ArrayListS extends java.lang.Object implements ListS {
     
     public int indexOf(String data) {
         for (int i = 0; i < last; i++) {
-            if (data.eqauls(arrayListS)) {
+            if (data.compareTo(arrayListS[i]) == 0) {
                 return i;
             }
         }
@@ -88,8 +89,8 @@ public class ArrayListS extends java.lang.Object implements ListS {
     }
     
     public void trimToSize() {
-        int[] result = new int[last];
-        for (int i : this.arrayListS) {
+        String[] result = new String[last];
+        for (int i = 0; i < last; i++) {
             result[i] = arrayListS[i];  
         }
         arrayListS = result;
